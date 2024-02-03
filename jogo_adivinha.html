@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <input type="text" />
+    <button>Compare com o seu segredo</button>
+
+    <script>
+        function sorteia() {
+            return Math.round(Math.random()) * 10;
+        }
+
+        function sorteiaNumero(quantidade) {
+            var segredos = [];
+            var numero = 1;
+
+            while (numero <= quantidade) {
+                var numeroAleatorio = sorteia();
+                var achou = false;
+
+                for (var posicao = 0; posicao < segredos.length; posicao++) {
+                    if (numeroAleatorio == segredos[posicao]) {
+                        achou = true;
+                        break;
+                    }
+                }
+                if (achou == false) {
+                    segredos.push(numeroAleatorio);
+                    numero++;
+                }
+            }
+            return segredos;
+        }
+
+        var segredos = sorteiaNumero(3);
+        console.log(segredos);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
