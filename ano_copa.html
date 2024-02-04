@@ -5,15 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <canvas width="600" height="400"></canvas>
     <script>
-        function pulaLinha() {
-            document.write("<br>");
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = 'gray';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaCiruculo(evento) {
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+            console.log(x + ', ' + y);
+
         }
 
-        function mostra(frase) {
-            document.write(frase);
-            pulaLinha();
-        }
+        tela.onclick = desenhaCiruculo;
     </script>
 </head>
 
